@@ -13,7 +13,7 @@ object Dataset {
     var content = List[String]()
     var label = List[Int]()
     //load positive
-    val pospath = filepath + "\\pos"
+    val pospath = filepath + "/pos"
     val posfilenames = getListOfFiles(pospath)
     for(i<-0 to posfilenames.size-1) {
       var text = ""
@@ -23,7 +23,7 @@ object Dataset {
       content :+= text
       label :+= 1
     }
-    val negpath = filepath + "\\neg"
+    val negpath = filepath + "/neg"
     val negfilenames = getListOfFiles(negpath)
     for(i<-0 to negfilenames.size-1) {
       var text = ""

@@ -73,10 +73,23 @@ object Preprocessing {
     token
   }
 
-  def saveBag(bag : List[String], n : Int = 2): Unit = {
+  def saveBag(bag : List[String], filename : String): Unit = {
     val a = Json(DefaultFormats).write(bag)
-    val pthbag = "./feature/bag-" + n + "-gram"
-    val pw = new PrintWriter(new File(pthbag))
+    val pw = new PrintWriter(new File(filename))
+    pw.write(a)
+    pw.close
+  }
+
+  def saveTFIDF(bag : List[Double], filename : String): Unit = {
+    val a = Json(DefaultFormats).write(bag)
+    val pw = new PrintWriter(new File(filename))
+    pw.write(a)
+    pw.close
+  }
+
+  def saveDFIDFClass(bag : Map[Int, Map[String, Double]], filename : String): Unit = {
+    val a = Json(DefaultFormats).write(bag)
+    val pw = new PrintWriter(new File(filename))
     pw.write(a)
     pw.close
   }
